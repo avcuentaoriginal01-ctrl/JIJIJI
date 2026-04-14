@@ -41,7 +41,6 @@ const startBtn = document.getElementById('startBtn');
 let animStarted = false;
 
 startBtn.addEventListener('click', startExperience);
-startBtn.addEventListener('touchend', startExperience, {passive:true});
 
 function startExperience() {
   if (animStarted) return;
@@ -49,6 +48,7 @@ function startExperience() {
   bgAudio.play().catch(() => {});
   splash.classList.add('hidden');
   setTimeout(() => { splash.style.display = 'none'; }, 1100);
+  t0 = null;
   requestAnimationFrame(frame);
 }
 
